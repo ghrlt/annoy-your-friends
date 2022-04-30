@@ -1,0 +1,5 @@
+instagram/.env
+telegram/.env
+discord/.env
+instagram/logs
+instagram/session.json
