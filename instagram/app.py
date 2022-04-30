@@ -26,6 +26,7 @@ logging.basicConfig(
 	level=logging.DEBUG,
 	datefmt='%Y-%m-%d %H:%M:%S'
 )
+if not "logs" in os.listdir(): os.mkdir("logs")
 handler = TimedRotatingFileHandler("logs/insta.log", when="midnight", interval=1)
 handler.suffix = "%Y%m%d"
 formatter = logging.Formatter("%(asctime)s %(levelname)-8s %(message)s")
@@ -93,7 +94,12 @@ class AnnoyApp:
 
 	def sleep(self, delay: int):
 		logger.debug(f"Sleeping for {delay} seconds")
-		time.sleep(delay)
+		try:
+			time.sleep(delay)
+		except KeyboardInterrupt:
+			logging.info("KeyboardInterrupt, exiting.")
+			exit()
+
 		logger.debug("Sleep finished")
 
 	@property
@@ -272,4 +278,4 @@ class AnnoyApp:
 
 
 app = AnnoyApp()
-#app.fetchNewMessages()
+app.fetchNewMessages()
