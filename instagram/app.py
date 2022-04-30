@@ -201,6 +201,8 @@ class AnnoyApp:
 
 		message.text = message.text.lower()
 
+		if self.isACommand(message):
+			return self.handleCommands(message)
 
 		#last_word = message.text.split()[-1] #Punctuation is a problem
 
@@ -215,6 +217,57 @@ class AnnoyApp:
 			logger.debug("Sent")
 		else:
 			logger.info("No pun found..")
+
+
+	def isACommand(self, message):
+		if message.text.startswith('/'):
+			return True
+		return False
+
+	def handleCommands(self, message):
+		prefix, command, args = message.text[0], message.text.split()[0][1:], message.text.split()[1:]
+		is_from_admin = message.user_id in self.admins
+
+		if command == "unsubscribe":
+			unsubed = self.unsubscribed
+			unsubed.append( message.user_id )
+
+			with open('unsubscribed.json', 'w') as f:
+				json.dump(unsubed, f)
+
+		elif command == "subscribe":
+			unsubed = self.unsubscribed
+			unsubed.remove( message.user_id )
+
+			with open('unsubscribed.json', 'w') as f:
+				json.dump(unsubed, f)
+
+		elif command in ["addadmin", "add_admin"]:
+			if not is_from_admin:
+				return
+
+			if not args:
+				self.client.direct_answer('❌ New admin username is missing')
+				return
+
+			admins = self.admins
+			for admin in args:
+				a = self.getUser(by_username=admin)
+				if a:
+					admins.append(a.pk)
+				else:
+					self.client.direct_answer(f'❌ user "{admin}" not found.')
+
+			with open('admins.json', 'w') as f:
+				json.dump(admins, f)
+
+			self.client.direct_answer('✅', message.thread_id)
+			return
+
+
+		else:
+			self.client.direct_answer(message.thread_id, "Unknown command..")
+
 
 
 
