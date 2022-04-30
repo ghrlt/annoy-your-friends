@@ -1,0 +1,4 @@
+python-dotenv
+instagrapi
+colorama
+termcolor
