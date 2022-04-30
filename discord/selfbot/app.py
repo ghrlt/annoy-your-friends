@@ -91,6 +91,9 @@ async def on_message(msg):
 		return
 
 	_content = msg.content.strip(',;:!?.(){}[]"*') #Punctuation is no more a problem
+	if not _content:
+		return
+
 	last_word = _content.split()[-1]
 
 	puns = getPuns()

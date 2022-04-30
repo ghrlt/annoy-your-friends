@@ -213,8 +213,12 @@ class AnnoyApp:
 		#last_word = message.text.split()[-1] #Punctuation is a problem
 
 		_text = message.text.strip(',;:!?.(){}[]"*') #Punctuation is no more a problem
+		if not _text:
+			logging.debug("Message empty after punctuation clear.")
+			return
 
 		last_word = _text.split()[-1]
+
 
 		puns = self.puns
 		if last_word in puns.keys():
