@@ -90,6 +90,9 @@ async def on_message(msg):
 	if not (msg.channel.id in wl or msg.guild.id in wl):
 		return
 
+	if msg.author.id == bot.user.id: 
+		return
+
 	_content = msg.content.strip(',;:!?.(){}[]"*') #Punctuation is no more a problem
 	if not _content:
 		return
