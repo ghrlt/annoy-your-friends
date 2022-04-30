@@ -1,5 +1,5 @@
 {
-	"a": ["bruti"],
+	"a": ["bruti", "rabe", "fricain"],
 	"b": ["ite", "ras", "outeille", "ottle"],
 	"c": ["ock", "riterium", "ocorico", "oq", "ul"],
 	"d": ["ick"],
@@ -12,8 +12,9 @@
 	"allo": ["pital"],
 	"re": ["nard", "flux gastrique", "tour", "tournement"],
 	"tg": ["v"],
-	"ah": ["beh"],
-	"chut": ["de neige"],
+	"ah": ["bruti", "rabe", "fricain"],
+	"chut": ["de neige", "d'eau"],
+	"chute": ["de neige", "d'eau"],
 	"ok": ["sur glace", "art de tour"],
 	"what": ["'s your name", "are you doing step bro", "are you doing step daughter"],
 	"riz": ["zoto"],
