@@ -1,5 +1,8 @@
-instagram/.env
-telegram/.env
-discord/.env
-instagram/logs
 instagram/session.json
+instagram/logs
+instagram/.env
+
+telegram/.env
+
+discord/bot/.env
+discord/selfbot/.env
