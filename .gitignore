@@ -1,3 +1,5 @@
+instagram/unsubscribed.json
+instagram/blacklisted.json
 instagram/session.json
 instagram/logs
 instagram/.env
@@ -6,3 +8,9 @@ telegram/.env
 
 discord/bot/.env
 discord/selfbot/.env
+
+discord/bot/admins.json
+discord/bot/blacklisted.json
+discord/bot/unsubscribed.json
+
+discord/selfbot/whitelisted.json
