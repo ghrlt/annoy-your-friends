@@ -28,7 +28,8 @@ Start the bot<br>
 ### Usage
 If you are running your own instance, just add your bot to your servers/groups/chats
 
-If you want to use the instance I'm running add:
+If you want to use the instance I'm running, add:
   - [@tudisquoijedisfeur](https://instagram.com/tudisquoijedisfeur) on Instagram
   - [@TuDisQuoiJeDisFeur](https://t.me/tudisquoijedisfeur_bot) on Telegram 
-  - [todo#0000](todo) on Discord
+  - [AnnoyYourFriends#6779](https://discord.com/oauth2/authorize?client_id=970037735668727858&scope=bot&permissions=275079564352) on Discord (Bot)
+  - [Todo](todo) on Discord (SelfBot)
