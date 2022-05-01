@@ -7,9 +7,15 @@
 	"que": ["quette", "relle"],
 	"qui": ["wi", "oui", "quette"],
 	"feur": ["ouge"],
+	"feu": ["rouge", "vert", "de forêt"],
+	"retour": ["nement de situation"],
 	"hein": ["deux", "ceste", "cestueux"],
 	"comment": ["tateur", "raire", "dant"],
 	"allo": ["pital"],
+	"gorge": ["profonde"],
+	"ment": ["tal", "teur", "he"],
+	"tal": ["iban"],
+	"carré": ["d'or"],
 	"re": ["nard", "flux gastrique", "tour", "tournement"],
 	"tg": ["v"],
 	"ah": ["bruti", "rabe", "fricain"],
@@ -31,5 +37,6 @@
 	"toi": ["lette", "ture"],
 	"hi": ["bou", "pocondriaque"],
 	"yes": ["terday"],
-	"genie": ["teur", "trice"]
+	"genie": ["teur", "trice"],
+	"moi": ["sissure", "sis", "toi", "ne"]
 }
