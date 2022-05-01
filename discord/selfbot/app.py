@@ -8,12 +8,17 @@ import random
 
 dotenv.load_dotenv()
 
-bot = commands.Bot(command_prefix="!", description="Sometimes makings puns in your servers!")
-
+# https://github.com/dolfies/discord.py-self/issues/209#issuecomment-1038614389
+bot = commands.Bot(
+	command_prefix="!", description="Sometimes makings puns in your servers!",
+	guild_subscription_options=discord.GuildSubscriptionOptions.off(),
+	self_bot=True
+)
 
 @bot.event
 async def on_ready():
 	print("<"*10, f"Logged in as {bot.user.name}#{bot.user.discriminator}", ">"*10)
+	await bot.change_presence(status=discord.Status("dnd"))
 
 
 def getWhiteListed():
@@ -33,6 +38,8 @@ def getPuns():
 async def on_message(msg):
 	wl = getWhiteListed()
 
+	msg.content = msg.content.lower()
+
 	if msg.content.startswith(bot.command_prefix):
 		prefix, command, args = msg.content[0], msg.content.split()[0][1:], msg.content.split()[1:]
 		is_from_admin = msg.author.id == bot.user.id
@@ -42,7 +49,7 @@ async def on_message(msg):
 				if not args:
 					wl.append( msg.channel.id )
 					with open('whitelisted.json', 'w') as f:
-						json.dump(wl, f)
+						json.dump(wl, f, indent=2)
 
 				else:
 					for arg in args:
@@ -65,7 +72,7 @@ async def on_message(msg):
 				if not args:
 					wl.remove( msg.channel.id )
 					with open('whitelisted.json', 'w') as f:
-						json.dump(wl, f)
+						json.dump(wl, f, indent=2)
 
 				else:
 					for arg in args:
@@ -86,8 +93,11 @@ async def on_message(msg):
 
 		return
 
-
-	if not (msg.channel.id in wl or msg.guild.id in wl):
+	if isinstance(msg.channel, discord.DMChannel):
+		if not (msg.author.id in wl or msg.channel.id in wl):
+			return
+	
+	elif not (msg.channel.id in wl or msg.guild.id in wl):
 		return
 
 	if msg.author.id == bot.user.id: 

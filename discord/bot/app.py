@@ -48,6 +48,8 @@ async def on_message(msg):
 	if msg.author.id == bot.user.id: return
 	elif msg.author.id in getBlacklisted(): return
 
+	msg.content = msg.content.lower()
+
 	if msg.content.startswith(bot.command_prefix):
 		prefix, command, args = msg.content[0], msg.content.split()[0][1:], msg.content.split()[1:]
 		is_from_admin = msg.author.id in getAdmins()
