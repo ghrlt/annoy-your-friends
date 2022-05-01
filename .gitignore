@@ -4,6 +4,9 @@ instagram/session.json
 instagram/logs
 instagram/.env
 
+twitter/.env
+twitter/logs
+
 discord/bot/.env
 discord/selfbot/.env
 
